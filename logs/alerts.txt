@@ -1,0 +1,84 @@
+[2025-07-07 17:12:48]
+Ticker: T
+Summary: US stock futures decline as President Trump threatens to impose 10% tariffs on BRICS countries and the deadline for trade deals looms.
+Impact: 🚨🚨🚨
+Link: https://finance.yahoo.com/news/live/stock-market-today-dow-sp-500-nasdaq-futures-fall-as-trump-warns-of-10-brics-tariff-deals-deadline-looms-001624571.html
+--------------------------------------------------
+[2025-07-07 17:13:01]
+Ticker: T
+Summary: The article highlights Carvana and Ferrari as stocks to watch, as they approach buy points and are expected to experience price movements.
+Impact: 🔈🔈
+Link: https://www.investors.com/news/stocks-to-watch-carvana-ferrari-gold-mining/?src=A00220&yptr=yahoo
+--------------------------------------------------
+[2025-07-07 17:13:09]
+Ticker: T
+Summary: Thermo Fisher Scientific's stock price declined due to investor concerns over the company's plans to cut spending, which may impact its future growth prospects.
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/thermo-fisher-scientific-tmo-traded-112429160.html
+--------------------------------------------------
+[2025-07-07 17:13:14]
+Ticker: T
+Summary: A technology company has agreed to be acquired, leading to a surge in its stock price. The deal is expected to change the landscape of the artificial intelligence (AI) industry.
+Impact: 🚨🚨
+Link: https://www.barrons.com/articles/wns-capgemini-agentic-ai-deal-bd83956e?siteid=yhoof2&yptr=yahoo
+--------------------------------------------------
+[2025-07-07 17:13:19]
+Ticker: T
+Summary: Consumer spending patterns changed in Q2, affecting Target's sales.
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/shift-consumer-spending-challenged-target-111619410.html
+--------------------------------------------------
+[2025-07-07 17:13:24]
+Ticker: NFLX
+Summary: The article discusses Netflix's long-term growth potential, with some analysts expressing concerns about the company's ability to maintain its growth rate.
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/confident-netflix-nflx-long-term-110803799.html
+--------------------------------------------------
+[2025-07-07 17:13:28]
+Ticker: T
+Summary: The US Securities and Exchange Commission (SEC) has issued guidance for the development of rules governing cryptocurrency exchange-traded funds (ETFs).
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/analysis-us-secs-guidance-first-110710508.html
+--------------------------------------------------
+[2025-07-07 17:13:32]
+Ticker: T
+Summary: Despite the US-China trade deadline passing without a deal, the stock market remains uncertain about the future of trade negotiations.
+Impact: 🔈🔈
+Link: https://www.barrons.com/articles/trump-trade-deadline-things-to-know-today-fd2b4231?siteid=yhoof2&yptr=yahoo
+--------------------------------------------------
+[2025-07-07 17:13:36]
+Ticker: T
+Summary: No summary available.
+Impact: 🔈
+Link: https://www.barrons.com/articles/stock-movers-1a9a2443?siteid=yhoof2&yptr=yahoo
+--------------------------------------------------
+[2025-07-07 17:13:41]
+Ticker: META
+Summary: Meta Platforms (META) has reached record highs due to the company's efforts to develop "superintelligence" technology, which is expected to revolutionize the way humans interact with technology.
+Impact: 🚨🚨
+Link: https://finance.yahoo.com/news/superintelligence-takes-meta-platforms-record-103002062.html
+--------------------------------------------------
+[2025-07-07 17:13:48]
+Ticker: T
+Summary: The deadline for the US to impose tariffs on $300 billion of Chinese goods is approaching, with stocks currently at record highs.
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/trump-tariff-deadline-approaches-with-stocks-at-record-highs-what-to-know-this-week-113338556.html
+--------------------------------------------------
+[2025-07-07 17:13:59]
+Ticker: T
+Summary: Tariff jitters and concerns over Tesla's political involvement sent Wall Street futures tumbling, with the electric car maker's stock also taking a hit.
+Impact: 🚨🚨
+Link: https://finance.yahoo.com/news/wall-st-futures-slip-markets-100713691.html
+--------------------------------------------------
+[2025-07-07 17:14:12]
+Ticker: T
+Summary: The US stock market is expected to open lower on concerns over a potential trade war between the US and China, following reports of a decline in US-China trade talks.
+Impact: 🔈🔈
+Link: https://finance.yahoo.com/news/stocks-set-open-lower-trade-100755741.html
+--------------------------------------------------
+[2025-07-07 17:14:21]
+Ticker: T
+Summary: No summary available.
+Impact: 🔈
+Link: https://finance.yahoo.com/personal-finance/mortgages/article/best-online-mortgage-lenders-192422027.html
+--------------------------------------------------
