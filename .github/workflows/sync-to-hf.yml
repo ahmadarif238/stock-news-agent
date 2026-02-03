@@ -17,4 +17,10 @@ jobs:
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://ahmadarif238:$HF_TOKEN@huggingface.co/spaces/ahmadarif238/stock-news-agent main
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+          # Create a temporary branch with only the backend folder
+          git subtree split --prefix=backend -b hf-deploy
+          # Push that branch to Hugging Face Main
+          git push -f https://ahmadarif238:$HF_TOKEN@huggingface.co/spaces/ahmadarif238/stock-news-agent hf-deploy:main
