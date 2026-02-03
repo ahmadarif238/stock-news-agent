@@ -1,0 +1,18 @@
+# Python dependencies
+backend/venv/
+backend/__pycache__/
+backend/*.pyc
+backend/.env
+backend/*.sqlite
+
+# Node dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# IDE and System
+.vscode/
+.idea/
+.DS_Store
+*.log
