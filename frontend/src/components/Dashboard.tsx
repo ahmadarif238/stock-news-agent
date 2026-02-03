@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trash2, Plus, TrendingUp, AlertTriangle, ExternalLink, Activity } from 'lucide-react';
+import { Trash2, Plus, TrendingUp, ExternalLink, Activity } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { format } from 'date-fns';
 
@@ -214,7 +214,7 @@ export default function Dashboard() {
             queryClient.invalidateQueries({ queryKey: ['tickers'] });
             setNewTicker("");
         },
-        onError: (err) => alert("Failed to add ticker. It might already exist.")
+        onError: () => alert("Failed to add ticker. It might already exist.")
     });
 
     const deleteMutation = useMutation({
