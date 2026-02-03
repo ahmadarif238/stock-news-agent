@@ -23,4 +23,4 @@ jobs:
           # Create a temporary branch with only the backend folder
           git subtree split --prefix=backend -b hf-deploy
           # Push that branch to Hugging Face Main
-          git push -f https://ahmadarif238:$HF_TOKEN@huggingface.co/spaces/ahmadarif238/stock-news-agent hf-deploy:main
+          git push -f https://ArifAntarctic7:$HF_TOKEN@huggingface.co/spaces/ArifAntarctic7/Stock-News-Agent hf-deploy:main
