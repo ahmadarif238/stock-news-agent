@@ -18,4 +18,4 @@ ENV PYTHONUNBUFFERED=1
 ENV PORT=7860
 
 # Command to run uvicorn
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.1 --port ${PORT}"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT}"]
