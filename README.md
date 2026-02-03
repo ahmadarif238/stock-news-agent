@@ -31,7 +31,7 @@ A real-time, AI-powered market intelligence dashboard. This agent autonomously m
 2. Set the **Root Directory** to `frontend`.
 3. Set the following **Environment Variable**:
    - `VITE_API_URL`: The public URL of your Hugging Face Space (e.g., `https://[username]-[space-name].hf.space`).
-4. Build and Deploy!
+4. Build and Deploy
 
 ---
 
