@@ -16,4 +16,4 @@ try:
     print("Success!")
     print(f"Response: {completion.choices[0].message.content}")
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Errors: {e}")
