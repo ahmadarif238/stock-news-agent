@@ -73,6 +73,33 @@ app.add_middleware(
 
 # --- API Endpoints ---
 
+@app.get("/")
+def read_root():
+    """Service banner.
+
+    The app had no route for "/", so the Hugging Face Space landing page --
+    the first thing anyone opening the deployed link sees -- rendered
+    {"detail":"Not Found"} and read as a broken deployment. This reports what
+    the service is and whether it is running on the real database or the
+    local fallback.
+    """
+    from app.database import USING_FALLBACK
+
+    return {
+        "service": "Stock News Agent API",
+        "status": "running",
+        "database": "local fallback (set DATABASE_URL for shared persistence)"
+                    if USING_FALLBACK else "connected",
+        "docs": "/docs",
+        "endpoints": ["/tickers", "/alerts", "/health"],
+    }
+
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
 @app.get("/tickers", response_model=List[Ticker])
 def get_tickers(session: Session = Depends(get_session)):
     return session.exec(select(Ticker)).all()
