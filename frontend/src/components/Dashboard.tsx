@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trash2, Plus, TrendingUp, ExternalLink, Activity } from 'lucide-react';
+import { Trash2, Plus, TrendingUp, ExternalLink, Activity, BookOpen } from 'lucide-react';
 import { cn } from '../lib/utils';
 import { format } from 'date-fns';
 
@@ -41,10 +41,15 @@ const TickerBadge = ({ ticker, onDelete }: { ticker: Ticker; onDelete: (id: numb
         exit={{ opacity: 0, scale: 0.8 }}
         className="flex items-center gap-2 bg-secondary/50 hover:bg-secondary px-3 py-1.5 rounded-full text-sm font-medium transition-colors border border-border"
     >
-        <span>{ticker.symbol}</span>
+        {/* Fixed width keeps every delete button on one vertical axis
+            regardless of how long the ticker symbol is. */}
+        <span className="w-12 text-center font-mono">{ticker.symbol}</span>
         <button
+            type="button"
             onClick={() => onDelete(ticker.id)}
-            className="text-muted-foreground hover:text-destructive transition-colors p-0.5"
+            aria-label={`Remove ${ticker.symbol} from watchlist`}
+            title={`Remove ${ticker.symbol}`}
+            className="text-muted-foreground hover:text-destructive transition-colors flex items-center justify-center w-6 h-6 rounded-full hover:bg-destructive/10"
         >
             <Trash2 className="w-3.5 h-3.5" />
         </button>
@@ -60,9 +65,20 @@ const ImpactBadge = ({ impact }: { impact: string }) => {
     else if (score === 3) color = "bg-yellow-500/20 text-yellow-500 border-yellow-500/20";
     else if (score > 0) color = "bg-emerald-500/20 text-emerald-400 border-emerald-500/20";
 
+    // "4 Positive" -> score "4", sentiment "Positive"
+    const [rawScore, ...sentimentParts] = impact.split(' ');
+    const sentiment = sentimentParts.join(' ');
+    const label = score
+        ? `Market impact ${score} of 5 - ${sentiment || 'unrated'}`
+        : impact;
+
     return (
-        <span className={cn("px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider border", color)}>
-            {impact}
+        <span
+            title={label}
+            aria-label={label}
+            className={cn("px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider border", color)}
+        >
+            {score ? <>{rawScore}<span className="opacity-60">/5</span> {sentiment}</> : impact}
         </span>
     );
 };
@@ -241,18 +257,21 @@ export default function Dashboard() {
                         <Activity className="w-8 h-8 text-primary" />
                         Stock News Agent
                     </h1>
-                    <div className="flex items-center gap-3 mt-1">
-                        <p className="text-muted-foreground">Real-time market intelligence & impact analysis</p>
-                        <button
-                            onClick={() => setIsManualOpen(true)}
-                            className="text-xs text-primary hover:underline font-medium"
-                        >
-                            Open User Manual
-                        </button>
-                    </div>
+                    <p className="text-muted-foreground mt-1">Real-time market intelligence &amp; impact analysis</p>
                 </div>
 
-                <div className="flex gap-4">
+                {/* The manual link used to sit mid-header between the title and
+                    the metrics, aligned to neither. Grouping it with the stats
+                    on the right gives it an owner and a consistent edge. */}
+                <div className="flex items-center gap-4">
+                    <button
+                        type="button"
+                        onClick={() => setIsManualOpen(true)}
+                        className="flex items-center gap-1.5 px-3 py-2 rounded-sm border border-border text-xs font-medium text-muted-foreground hover:text-primary hover:border-primary/40 transition-colors"
+                    >
+                        <BookOpen className="w-4 h-4" />
+                        Open User Manual
+                    </button>
                     <div className="bg-card border border-border px-4 py-2 rounded-lg text-center min-w-[100px]">
                         <div className="text-2xl font-bold">{alerts.length}</div>
                         <div className="text-xs text-muted-foreground uppercase tracking-widest">Alerts</div>
