@@ -1,6 +1,11 @@
 import os
 from groq import Groq
 
+# Groq decommissioned every Llama chat model (2026-08); the free production
+# line-up is now the openai/gpt-oss-* family. Env-overridable so a future
+# rename is a Vercel env change, not a redeploy.
+MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-20b")
+
 # Reuse the prompt logic from original project
 IMPACT_PROMPT = """
 You are a financial analyst. Analyze the following news for the stock: {ticker}.
@@ -32,7 +37,12 @@ def evaluate_news(ticker: str, title: str, summary: str) -> dict:
                     "content": IMPACT_PROMPT.format(ticker=ticker, title=title, summary=summary)
                 }
             ],
-            model="llama-3.1-8b-instant",  # Updated from decommissioned llama3-8b-8192
+            model=MODEL,
+            # gpt-oss reasons before answering; hide the chain of thought so the
+            # "Summary:/Impact:" parser below sees only the final answer.
+            reasoning_format="hidden",
+            reasoning_effort="low",
+            max_tokens=300,
         )
         
         response_text = completion.choices[0].message.content

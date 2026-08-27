@@ -11,7 +11,7 @@ try:
     client = Groq(api_key=api_key)
     completion = client.chat.completions.create(
         messages=[{"role": "user", "content": "test"}],
-        model="llama-3.1-8b-instant",
+        model="openai/gpt-oss-20b",
     )
     print("Success!")
     print(f"Response: {completion.choices[0].message.content}")
