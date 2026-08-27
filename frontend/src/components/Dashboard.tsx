@@ -39,7 +39,7 @@ const TickerBadge = ({ ticker, onDelete }: { ticker: Ticker; onDelete: (id: numb
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.8 }}
-        className="flex items-center gap-2 bg-secondary/50 hover:bg-secondary px-3 py-1.5 rounded-full text-sm font-medium transition-colors border border-white/5"
+        className="flex items-center gap-2 bg-secondary/50 hover:bg-secondary px-3 py-1.5 rounded-full text-sm font-medium transition-colors border border-border"
     >
         <span>{ticker.symbol}</span>
         <button
@@ -54,11 +54,11 @@ const TickerBadge = ({ ticker, onDelete }: { ticker: Ticker; onDelete: (id: numb
 const ImpactBadge = ({ impact }: { impact: string }) => {
     // Extract number if present "5 Positive" -> 5
     const score = parseInt(impact.split(' ')[0]) || 0;
-    let color = "bg-gray-500/20 text-gray-400 border-gray-500/20";
+    let color = "bg-muted/20 text-muted-foreground border-border/20";
 
     if (score >= 4) color = "bg-red-500/20 text-red-500 border-red-500/20";
     else if (score === 3) color = "bg-yellow-500/20 text-yellow-500 border-yellow-500/20";
-    else if (score > 0) color = "bg-green-500/20 text-green-500 border-green-500/20";
+    else if (score > 0) color = "bg-emerald-500/20 text-emerald-400 border-emerald-500/20";
 
     return (
         <span className={cn("px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider border", color)}>
@@ -71,7 +71,7 @@ const NewsCard = ({ alert }: { alert: NewsAlert }) => (
     <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-card hover:bg-card/80 border border-white/5 rounded-xl transition-colors group overflow-hidden flex flex-col"
+        className="bg-card hover:bg-card/80 border border-border rounded-xl transition-colors group overflow-hidden flex flex-col"
     >
         {alert.image_url && (
             <div className="w-full h-48 overflow-hidden relative">
@@ -99,7 +99,7 @@ const NewsCard = ({ alert }: { alert: NewsAlert }) => (
                 </span>
             </div>
 
-            <h3 className="font-semibold text-lg mb-2 leading-snug group-hover:text-blue-400 transition-colors">
+            <h3 className="font-semibold text-lg mb-2 leading-snug group-hover:text-primary-bright transition-colors">
                 <a href={alert.link} target="_blank" rel="noreferrer" className="flex items-center gap-1">
                     {alert.title}
                 </a>
@@ -138,11 +138,11 @@ const UserManual = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                     initial={{ scale: 0.9, y: 20 }}
                     animate={{ scale: 1, y: 0 }}
                     exit={{ scale: 0.9, y: 20 }}
-                    className="bg-card border border-white/10 p-8 rounded-2xl max-w-2xl w-full shadow-2xl space-y-6"
+                    className="bg-card border border-border p-8 rounded-2xl max-w-2xl w-full shadow-2xl space-y-6"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="space-y-2">
-                        <h2 className="text-2xl font-bold text-primary">How to Use the Stock News Agent</h2>
+                        <h2 className="font-serif-display text-3xl gold-gradient-text">How to Use the Stock News Agent</h2>
                         <p className="text-muted-foreground text-sm">Your 24/7 AI-powered financial market intelligence assistant.</p>
                     </div>
 
@@ -158,8 +158,8 @@ const UserManual = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                         </div>
 
                         <div className="flex gap-4">
-                            <div className="bg-green-500/20 p-2 rounded-lg h-fit">
-                                <TrendingUp className="w-5 h-5 text-green-500" />
+                            <div className="bg-emerald-500/20 p-2 rounded-lg h-fit">
+                                <TrendingUp className="w-5 h-5 text-emerald-400" />
                             </div>
                             <div>
                                 <h3 className="font-semibold mb-1">Step 2: AI Impact Analysis</h3>
@@ -168,8 +168,8 @@ const UserManual = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
                         </div>
 
                         <div className="flex gap-4">
-                            <div className="bg-blue-500/20 p-2 rounded-lg h-fit">
-                                <Activity className="w-5 h-5 text-blue-500" />
+                            <div className="bg-primary/20 p-2 rounded-lg h-fit">
+                                <Activity className="w-5 h-5 text-primary" />
                             </div>
                             <div>
                                 <h3 className="font-semibold mb-1">Step 3: Act on Intelligence</h3>
@@ -235,10 +235,10 @@ export default function Dashboard() {
             <UserManual isOpen={isManualOpen} onClose={() => setIsManualOpen(false)} />
 
             {/* Header */}
-            <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-white/5">
+            <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-border">
                 <div>
-                    <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent flex items-center gap-3">
-                        <Activity className="w-8 h-8 text-blue-400" />
+                    <h1 className="font-serif-display text-4xl gold-gradient-text flex items-center gap-3">
+                        <Activity className="w-8 h-8 text-primary" />
                         Stock News Agent
                     </h1>
                     <div className="flex items-center gap-3 mt-1">
@@ -253,7 +253,7 @@ export default function Dashboard() {
                 </div>
 
                 <div className="flex gap-4">
-                    <div className="bg-card border border-white/5 px-4 py-2 rounded-lg text-center min-w-[100px]">
+                    <div className="bg-card border border-border px-4 py-2 rounded-lg text-center min-w-[100px]">
                         <div className="text-2xl font-bold">{alerts.length}</div>
                         <div className="text-xs text-muted-foreground uppercase tracking-widest">Alerts</div>
                     </div>
@@ -269,9 +269,9 @@ export default function Dashboard() {
 
                 {/* Sidebar: Ticker Management */}
                 <div className="lg:col-span-1 space-y-6">
-                    <div className="bg-card border border-white/10 rounded-xl p-5 sticky top-6">
-                        <h2 className="font-semibold text-lg mb-4 flex items-center gap-2">
-                            <TrendingUp className="w-5 h-5 text-green-400" /> Watchlist
+                    <div className="luxury-card-bg border border-border rounded-sm p-5 sticky top-6">
+                        <h2 className="font-serif-display text-xl mb-4 flex items-center gap-2">
+                            <TrendingUp className="w-5 h-5 text-primary" /> Watchlist
                         </h2>
 
                         <form onSubmit={handleAddTicker} className="flex gap-2 mb-4">
@@ -279,7 +279,7 @@ export default function Dashboard() {
                                 value={newTicker}
                                 onChange={(e) => setNewTicker(e.target.value)}
                                 placeholder="Add Ticker (e.g. NVDA)"
-                                className="flex-1 bg-background border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 uppercase"
+                                className="flex-1 bg-background border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 uppercase"
                             />
                             <button
                                 type="submit"
@@ -305,17 +305,17 @@ export default function Dashboard() {
 
                 {/* Main Feed */}
                 <div className="lg:col-span-3 space-y-6">
-                    <h2 className="font-semibold text-xl flex items-center gap-2">
+                    <h2 className="font-serif-display text-2xl flex items-center gap-2">
                         <span className="relative flex h-3 w-3">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-bright opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
                         </span>
                         Live Market Feed
                     </h2>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {alerts.length === 0 ? (
-                            <div className="col-span-full py-20 text-center text-muted-foreground border-2 border-dashed border-white/5 rounded-xl">
+                            <div className="col-span-full py-20 text-center text-muted-foreground border-2 border-dashed border-border rounded-xl">
                                 No alerts generated yet. Add tickers and wait for the agent to fetch news.
                             </div>
                         ) : (
